@@ -1,0 +1,11 @@
+Scrapy
+pandas
+numpy
+scikit-learn
+jupyter
+jupyterlab
+requests
+beautifulsoup4
+lxml
+html5lib
+requests
