@@ -21,11 +21,19 @@ class posScraper(nflScraper):
         for year in self.years:
             for week in self.weeks:
                 link = utils.getLink(self.url, year, week, self.id)
-                table = utils.getTable(link)
-                frame = utils.getStats(table)
-                stats = stats.append(frame, ignore_index=True)
 
-                time.sleep(self.wait)
+                next = True
+                while next:
+                    table = utils.getTable(link)
+                    frame = utils.getStats(table)
+                    stats = stats.append(frame, ignore_index=True)
+
+                    if utils.checkNext(link):
+                        link = utils.checkNext(link)
+                    else:
+                        next = False
+
+                    time.sleep(self.wait)
 
         return stats
 
@@ -37,13 +45,17 @@ class qbScraper(posScraper):
         super().__init__(config=config, position='qb')
 
 class recScraper(posScraper):
-    """Web scraping class for receiving stats."""
+    """
+    Web scraping class for receiving stats.
+    """
 
     def __init__(self, config):
         super().__init__(config=config, position='rec')
 
 class rushScraper(posScraper):
-    """Web scraping class for rushing stats"""
+    """
+    Web scraping class for rushing stats.
+    """
 
     def __init__(self, config):
         super().__init__(config=config, position='rush')

@@ -34,6 +34,23 @@ class utils(object):
         return table
 
     @staticmethod
+    def checkNext(link):
+        """
+        Check to see if data spans multiple pages. Return link to next page
+        if it exists, otherwise return None.
+        """
+        page = requests.get(link) # get HTML for stats
+        soup = BeautifulSoup(page.text, 'html.parser')
+
+        prevnext = soup.find("div", {"class":"prevnext"})
+        if prevnext:
+            next = prevnext.find("a", {"class": "button2 next"})
+            if next:
+                return nflScraper.domain + next['href']
+
+        return None
+
+    @staticmethod
     def getStats(table):
         """Extract all statistics for every player at this position."""
         stats = {}
