@@ -1,5 +1,5 @@
-from scrapers.posScraper import qbScraper, rushScraper, recScraper
-from scrapers.gmScraper import gmScraper
+from scrapers.posnScraper import qbScraper, rushScraper, recScraper
+from scrapers.gameScraper import gmScraper
 from docs.position.config import posnConfig
 from docs.game.config import gameConfig
 
