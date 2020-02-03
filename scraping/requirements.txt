@@ -1,4 +1,3 @@
-Scrapy
 pandas
 numpy
 scikit-learn
@@ -9,3 +8,5 @@ beautifulsoup4
 lxml
 html5lib
 requests
+psycopg2
+sqlalchemy

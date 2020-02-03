@@ -4,10 +4,10 @@ class Config(object):
     use it to set configuration properties for that sub-class.
     """
 
-    def __init__(self, config=None):
-        self._config = config
+    def __init__(self):
+        raise NotImplementedError
 
     def get_property(self, property_name):
         if property_name not in self._config.keys():
-            return None  
+            return None
         return self._config[property_name]

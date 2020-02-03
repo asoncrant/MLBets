@@ -24,6 +24,6 @@ class gmScraper(nflScraper):
 
             games = games.append(frame, ignore_index = True)
 
-            time.sleep(3')
+            time.sleep(3)
 
         return games

@@ -4,6 +4,9 @@ from ..config import Config
 class posnConfig(Config):
     """Web scraping configuration object"""
 
+    def __init__(self, config):
+        self._config = config['positions']
+
     @property
     def url(self):
         return self.get_property('url')
